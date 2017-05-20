@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.15)  9 MAY 2017 16:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.15)  19 MAY 2017 01:43
 entering extended mode
 **./lab7_angel.tex
 (lab7_angel.tex
@@ -1169,81 +1169,6 @@ LaTeX Warning: Label `ris:image' multiply defined.
 
 LaTeX Warning: Label `ris:image' multiply defined.
 
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
-
-LaTeX Warning: Label `ris:image' multiply defined.
-
 )
 \openout1 = `lab7_angel.aux'.
 
@@ -1369,221 +1294,103 @@ LaTeX Font Warning: Font shape `T2A/cmr/bx/n' in size <20> not available
 [1
 
 {C:/Users/Павел/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<image/1.png, id=14, 430.60875pt x 176.15813pt>
+[1] <image/1.png, id=22, 430.60875pt x 176.15813pt>
 File: image/1.png Graphic file (type png)
  <use image/1.png>
-Package pdftex.def Info: image/1.png used on input line 86.
+Package pdftex.def Info: image/1.png used on input line 106.
 (pdftex.def)             Requested size: 362.77264pt x 148.40994pt.
-
-<image/1_2.png, id=15, 368.87813pt x 327.47343pt>
-File: image/1_2.png Graphic file (type png)
- <use image/1_2.png>
-Package pdftex.def Info: image/1_2.png used on input line 95.
-(pdftex.def)             Requested size: 362.77264pt x 322.05107pt.
- [1 <./image/1.png> <./image/1_2.png>] <image/1_3.png, id=23, 405.01312pt x 307
-.90031pt>
-File: image/1_3.png Graphic file (type png)
-
-<use image/1_3.png>
-Package pdftex.def Info: image/1_3.png used on input line 102.
-(pdftex.def)             Requested size: 362.77264pt x 275.79222pt.
- <image/1_4.png, id=24, 374.90062pt x 309.40594pt>
-File: image/1_4.png Graphic file (type png)
-
-<use image/1_4.png>
-Package pdftex.def Info: image/1_4.png used on input line 108.
-(pdftex.def)             Requested size: 362.77264pt x 299.41522pt.
- [2 <./image/1_3.png> <./image/1_4.png>]
-<image/1_5.png, id=28, 377.91188pt x 309.40594pt>
-File: image/1_5.png Graphic file (type png)
- <use image/1_5.png>
-Package pdftex.def Info: image/1_5.png used on input line 141.
-(pdftex.def)             Requested size: 362.77264pt x 297.01216pt.
- [3 <./image/1_5.png>] <image/1_6.png, id=35, 506.6428pt x 177.66376pt>
+PGFPlots: reading {data/1_1.txt}
+PGFPlots: reading {data/1_1.txt}
+PGFPlots: reading {data/1_1.txt}
+ [2 <./image/1.png>]
+PGFPlots: reading {data/1_1_e.txt}
+PGFPlots: reading {data/1_1_e.txt}
+PGFPlots: reading {data/1_1_e.txt}
+ <image/1_6.png, id=27, 506.6428pt x 177.66376pt>
 File: image/1_6.png Graphic file (type png)
 
 <use image/1_6.png>
-Package pdftex.def Info: image/1_6.png used on input line 151.
+Package pdftex.def Info: image/1_6.png used on input line 223.
 (pdftex.def)             Requested size: 362.77264pt x 127.21567pt.
- <image/1_7.png, id=36, 436.63126pt x 355.3275pt>
-File: image/1_7.png Graphic file (type png)
-
-<use image/1_7.png>
-Package pdftex.def Info: image/1_7.png used on input line 160.
-(pdftex.def)             Requested size: 362.77264pt x 295.22536pt.
- [4 <./image/1_6.png> <./image/1_7.png>]
-<image/1_8.png, id=40, 406.51875pt x 312.41719pt>
-File: image/1_8.png Graphic file (type png)
- <use image/1_8.png>
-Package pdftex.def Info: image/1_8.png used on input line 167.
-(pdftex.def)             Requested size: 362.77264pt x 278.80838pt.
-
-<image/1_9.png, id=41, 386.19281pt x 347.04657pt>
-File: image/1_9.png Graphic file (type png)
- <use image/1_9.png>
-Package pdftex.def Info: image/1_9.png used on input line 173.
-(pdftex.def)             Requested size: 362.77264pt x 326.0014pt.
- [5 <./image/1_8.png> <./image/1_9.png>]
-<image/1_10.png, id=45, 465.23813pt x 166.37157pt>
-File: image/1_10.png Graphic file (type png)
- <use image/1_10.png>
-Package pdftex.def Info: image/1_10.png used on input line 197.
-(pdftex.def)             Requested size: 362.77264pt x 129.73373pt.
-
-<image/1_11.png, id=46, 392.96812pt x 348.55219pt>
-File: image/1_11.png Graphic file (type png)
- <use image/1_11.png>
-Package pdftex.def Info: image/1_11.png used on input line 207.
-(pdftex.def)             Requested size: 362.77264pt x 321.78876pt.
-
-[6 <./image/1_10.png> <./image/1_11.png>]
-<image/1_12.png, id=51, 379.4175pt x 363.60844pt>
-File: image/1_12.png Graphic file (type png)
- <use image/1_12.png>
-Package pdftex.def Info: image/1_12.png used on input line 214.
-(pdftex.def)             Requested size: 362.77264pt x 347.66197pt.
-
-<image/1_13.png, id=52, 368.87813pt x 346.29375pt>
-File: image/1_13.png Graphic file (type png)
- <use image/1_13.png>
-Package pdftex.def Info: image/1_13.png used on input line 220.
-(pdftex.def)             Requested size: 338.58632pt x 317.85434pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[7 <./image/1_12.png>]
+[3]
+PGFPlots: reading {data/1_2.txt}
+PGFPlots: reading {data/1_2.txt}
+PGFPlots: reading {data/1_2.txt}
+ [4 <./image/1_6.png>] <image/1_10.png, id=36, 465.23813pt x 166.37157pt>
+File: image/1_10.png Graphic file (type png)
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 235.
+<use image/1_10.png>
+Package pdftex.def Info: image/1_10.png used on input line 286.
+(pdftex.def)             Requested size: 362.77264pt x 129.73373pt.
+PGFPlots: reading {data/2_1.txt}
+PGFPlots: reading {data/2_1.txt}
+PGFPlots: reading {data/2_1.txt}
+ [5 <./image/1_10.png>]
 
-[8 <./image/1_13.png>] <image/1_14.png, id=60, 368.1253pt x 304.88907pt>
-File: image/1_14.png Graphic file (type png)
+LaTeX Warning: Command \textendash invalid in math mode on input line 342.
 
-<use image/1_14.png>
-Package pdftex.def Info: image/1_14.png used on input line 251.
-(pdftex.def)             Requested size: 362.77264pt x 300.478pt.
- <image/1_15.png, id=61, 485.56406pt x 159.59625pt>
+PGFPlots: reading {data/2_1_e.txt}
+PGFPlots: reading {data/2_1_e.txt}
+PGFPlots: reading {data/2_1_e.txt}
+[6] <image/1_15.png, id=44, 485.56406pt x 159.59625pt>
 File: image/1_15.png Graphic file (type png)
-
-<use image/1_15.png>
-Package pdftex.def Info: image/1_15.png used on input line 260.
+ <use image/1_15.png>
+Package pdftex.def Info: image/1_15.png used on input line 403.
 (pdftex.def)             Requested size: 362.77264pt x 119.23662pt.
- [9 <./image/1_14.png> <./image/1_15.png>]
-<image/1_16.png, id=65, 508.14844pt x 373.395pt>
-File: image/1_16.png Graphic file (type png)
- <use image/1_16.png>
-Package pdftex.def Info: image/1_16.png used on input line 270.
-(pdftex.def)             Requested size: 362.77264pt x 266.58228pt.
+PGFPlots: reading {data/2_2.txt}
+PGFPlots: reading {data/2_2.txt}
+PGFPlots: reading {data/2_2.txt}
 
-<image/1_17.png, id=66, 413.29407pt x 346.29375pt>
-File: image/1_17.png Graphic file (type png)
- <use image/1_17.png>
-Package pdftex.def Info: image/1_17.png used on input line 276.
-(pdftex.def)             Requested size: 362.77264pt x 303.96796pt.
-
-[10 <./image/1_16.png> <./image/1_17.png>]
-<image/1_18.png, id=70, 426.09187pt x 371.88937pt>
-File: image/1_18.png Graphic file (type png)
- <use image/1_18.png>
-Package pdftex.def Info: image/1_18.png used on input line 283.
-(pdftex.def)             Requested size: 362.77264pt x 316.64085pt.
-
-[11 <./image/1_18.png>] <image/1_19.png, id=75, 365.86688pt x 306.39468pt>
-File: image/1_19.png Graphic file (type png)
-
-<use image/1_19.png>
-Package pdftex.def Info: image/1_19.png used on input line 310.
-(pdftex.def)             Requested size: 362.77264pt x 303.81789pt.
- <image/1_20.png, id=76, 528.47438pt x 183.68625pt>
+[7 <./image/1_15.png>]
+PGFPlots: reading {data/2_2_e.txt}
+PGFPlots: reading {data/2_2_e.txt}
+PGFPlots: reading {data/2_2_e.txt}
+ <image/1_20.png, id=48, 528.47438pt x 183.68625pt>
 File: image/1_20.png Graphic file (type png)
 
 <use image/1_20.png>
-Package pdftex.def Info: image/1_20.png used on input line 319.
+Package pdftex.def Info: image/1_20.png used on input line 496.
 (pdftex.def)             Requested size: 362.77264pt x 126.09056pt.
- [12 <./image/1_19.png> <./image/1_20.png>]
-<image/1_21.png, id=81, 517.935pt x 406.51875pt>
-File: image/1_21.png Graphic file (type png)
- <use image/1_21.png>
-Package pdftex.def Info: image/1_21.png used on input line 329.
-(pdftex.def)             Requested size: 362.77264pt x 284.74727pt.
-
-<image/1_22.png, id=82, 481.04718pt x 403.5075pt>
-File: image/1_22.png Graphic file (type png)
- <use image/1_22.png>
-Package pdftex.def Info: image/1_22.png used on input line 335.
-(pdftex.def)             Requested size: 362.77264pt x 304.3046pt.
- [13 <./image/1_21.png> <./image/1_22.png>]
-<image/1_23.png, id=86, 484.81125pt x 388.45125pt>
-File: image/1_23.png Graphic file (type png)
- <use image/1_23.png>
-Package pdftex.def Info: image/1_23.png used on input line 342.
-(pdftex.def)             Requested size: 362.77264pt x 290.6857pt.
-
-[14 <./image/1_23.png>] <image/1_24.png, id=90, 502.12593pt x 196.48407pt>
+ [8 <./image/1_20.png>]
+PGFPlots: reading {data/2_3.txt}
+PGFPlots: reading {data/2_3.txt}
+PGFPlots: reading {data/2_3.txt}
+PGFPlots: reading {data/2_3_e.txt}
+PGFPlots: reading {data/2_3_e.txt}
+PGFPlots: reading {data/2_3_e.txt}
+ [9]
+<image/1_24.png, id=55, 502.12593pt x 196.48407pt>
 File: image/1_24.png Graphic file (type png)
-
-<use image/1_24.png>
-Package pdftex.def Info: image/1_24.png used on input line 361.
+ <use image/1_24.png>
+Package pdftex.def Info: image/1_24.png used on input line 592.
 (pdftex.def)             Requested size: 362.77264pt x 141.9631pt.
- <image/1_25.png, id=91, 371.13657pt x 338.01282pt>
-File: image/1_25.png Graphic file (type png)
+PGFPlots: reading {data/3_2.txt}
+PGFPlots: reading {data/3_2.txt}
 
-<use image/1_25.png>
-Package pdftex.def Info: image/1_25.png used on input line 370.
-(pdftex.def)             Requested size: 362.77264pt x 330.40443pt.
- [15 <./image/1_24.png> <./image/1_25.png>]
-<image/1_26.png, id=95, 452.4403pt x 319.1925pt>
-File: image/1_26.png Graphic file (type png)
- <use image/1_26.png>
-Package pdftex.def Info: image/1_26.png used on input line 380.
-(pdftex.def)             Requested size: 362.77264pt x 255.92905pt.
- [16 <./image/1_26.png>] <image/1_27.png, id=99, 389.95688pt x 336.50719pt>
-File: image/1_27.png Graphic file (type png)
+[10 <./image/1_24.png>]
 
-<use image/1_27.png>
-Package pdftex.def Info: image/1_27.png used on input line 411.
-(pdftex.def)             Requested size: 362.77264pt x 313.0614pt.
- <image/1_28.png, id=100, 427.5975pt x 311.66437pt>
-File: image/1_28.png Graphic file (type png)
+LaTeX Warning: Command \textendash invalid in math mode on input line 674.
 
-<use image/1_28.png>
-Package pdftex.def Info: image/1_28.png used on input line 420.
-(pdftex.def)             Requested size: 362.77264pt x 264.41663pt.
- [17 <./image/1_27.png> <./image/1_28.png>]
-
-LaTeX Warning: Command \textendash invalid in math mode on input line 433.
-
-[18] <image/1_29.png, id=108, 679.78969pt x 216.05719pt>
+[11]
+PGFPlots: reading {data/3_2_e.txt}
+PGFPlots: reading {data/3_2_e.txt}
+ [12] <image/1_29.png, id=66, 679.78969pt x 216.05719pt>
 File: image/1_29.png Graphic file (type png)
- <use image/1_29.png>
-Package pdftex.def Info: image/1_29.png used on input line 461.
+
+<use image/1_29.png>
+Package pdftex.def Info: image/1_29.png used on input line 746.
 (pdftex.def)             Requested size: 362.77264pt x 115.29767pt.
-
-<image/1_30.png, id=109, 478.03593pt x 293.59688pt>
-File: image/1_30.png Graphic file (type png)
- <use image/1_30.png>
-Package pdftex.def Info: image/1_30.png used on input line 470.
-(pdftex.def)             Requested size: 362.77264pt x 222.80441pt.
-
-[19 <./image/1_29.png> <./image/1_30.png>]
-<image/1_31.png, id=113, 502.12593pt x 292.09125pt>
-File: image/1_31.png Graphic file (type png)
- <use image/1_31.png>
-Package pdftex.def Info: image/1_31.png used on input line 477.
-(pdftex.def)             Requested size: 362.77264pt x 211.04091pt.
-
-[20 <./image/1_31.png>] <image/1_32.png, id=117, 412.54124pt x 258.9675pt>
-File: image/1_32.png Graphic file (type png)
-
-<use image/1_32.png>
-Package pdftex.def Info: image/1_32.png used on input line 546.
-(pdftex.def)             Requested size: 362.77264pt x 227.73007pt.
- [21 <./image/1_32.png>]
-
-Package caption Warning: Unused \captionsetup[table] on input line 19.
-See the caption package documentation for explanation.
-
-[22] (lab7_angel.aux)
+PGFPlots: reading {data/4_1.txt}
+PGFPlots: reading {data/4_1.txt}
+PGFPlots: reading {data/4_1.txt}
+ [13 <./image/1_29.png>] [14]
+PGFPlots: reading {data/4_2_e_anal.txt}
+PGFPlots: reading {data/4_2_e_anal.txt}
+ [15] [16] (lab7_angel.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.74pt have occurred.
@@ -1593,32 +1400,31 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 26283 strings out of 493333
- 630084 string characters out of 3142653
- 773909 words of memory out of 3000000
- 29322 multiletter control sequences out of 15000+200000
- 18333 words of font info for 44 fonts, out of 3000000 for 9000
+ 26791 strings out of 493333
+ 644413 string characters out of 3142653
+ 958727 words of memory out of 3000000
+ 29828 multiletter control sequences out of 15000+200000
+ 17507 words of font info for 43 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,10n,96p,2843b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,19n,96p,1506b,2186s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Павел\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi6
 00\labx1440.pk> <C:\Users\Павел\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\l
-h\lh-t2a\dpi600\labx1095.pk> <C:\Users\Павел\AppData\Local\MiKTeX\2.9\font
-s\pk\ljfour\lh\lh-t2a\dpi600\larm0800.pk> <C:\Users\Павел\AppData\Local\Mi
-KTeX\2.9\fonts\pk\ljfour\unknown\unknown\dpi600\larm1095.pk> <C:\Users\Паве
-л\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\labx2074.pk> <C:\U
-sers\Павел\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\larm1
-440.pk> <C:\Users\Павел\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\unknown\u
-nknown\dpi600\larm0700.pk> <C:\Users\Павел\AppData\Local\MiKTeX\2.9\fonts\
-pk\ljfour\lh\lh-t2a\dpi600\labx1200.pk><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on lab7_angel.pdf (23 pages, 337241 bytes).
+h\lh-t2a\dpi600\larm0800.pk> <C:\Users\Павел\AppData\Local\MiKTeX\2.9\font
+s\pk\ljfour\unknown\unknown\dpi600\larm1095.pk> <C:\Users\Павел\AppData\Lo
+cal\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\labx2074.pk> <C:\Users\Паве
+л\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\larm1440.pk> <C:\U
+sers\Павел\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\unknown\unknown\dpi600
+\larm0700.pk> <C:\Users\Павел\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\
+lh-t2a\dpi600\labx1200.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on lab7_angel.pdf (17 pages, 326468 bytes).
 PDF statistics:
- 410 PDF objects out of 1000 (max. 8388607)
+ 356 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 173 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 48 words of extra memory for PDF output out of 10000 (max. 10000000)
 

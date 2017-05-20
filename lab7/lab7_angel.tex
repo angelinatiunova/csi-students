@@ -43,7 +43,7 @@
 
 		{\fontsize{20pt}{5cm}\selectfont \bfseries Лабораторная работа №7} \\
 		{\fontsize{20pt}{5cm}\selectfont \bfseries “Анализ точности систем управления”} \\
-		{\fontsize{14pt}{5cm}\selectfont Вариант - 25} \\
+		{\fontsize{14pt}{5cm}\selectfont Вариант - 1} \\
 		\vspace{1.5cm}
 
 		\flushleft
@@ -63,24 +63,44 @@
 \end{titlepage}
 
 
-\par
-\textbf{Цель работы}
-Исследование точностных свойств систем управления.
+\begin{center}
+\section*{Задание}
+\end{center}
+\subsection*{Цель работы}
+Исследование точностных свойств систем управления путём воздействия на систему различных типовых воздействий, а также внешних возмущений. 
 
+\subsection*{Исходные данные}
+\begin{table}[h!]
+\centering
+\begin{threeparttable}
+\caption{Исходные данные}\label{tab:perflogcross}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+$W(s)(0)$ & $W(s)(1)$ & $A$ & $V$ & $a$ & $f_1$ & $f_2$ & $g(t)$\\
+\cline{1-8}
+\rule{0cm}{0.75cm}
+\(\displaystyle \frac{2}{3s+1}\) & \(\displaystyle \frac{2}{3s+1}\) & $1$ & $0.5$ & $0.25$ & $1$ & $-0.5$ & $2+3sin(0.5t)$\\[0.4cm]
+\hline
+
+\end{tabular}
+\end{threeparttable}
+\end{table}
+
+\newpage
 \begin{center}
 \section{Исследование системы с астатизмом нулевого порядка}
 \end{center}
 
 \par
 Даны передаточная функция объекта управления и характеристики задающего воздействия:
-\par
+\par 
 $W(s) = \displaystyle \frac{2}{3s+1}$
-\par
+\par 
 $g(t) = 1$
-\par
+\par 
 $g(t)=0.5t$
 \par
-Построим схему моделирования системы с астатизмом нулевого порядка, находящейся в стационарном режиме работы $(g(t) = 1)$, где $H(s)=k$:
+Построим схему моделирования системы с астатизмом нулевого порядка, находящейся в стационарном режиме работы $(g(t) = 1)$, где $H(s)=k$. Схема моделирования представлена на рисунке 1.
 
 \begin{figure}[h!]
 \center{\includegraphics[width=0.75\linewidth]{image/1.png}}
@@ -92,22 +112,38 @@ $g(t)=0.5t$
 Промоделируем данную систему и получим переходные процессы для $k=1,5,10$:
 
 \begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_2.png}}
-\caption{Схема моделирования системы с астатизмом нулевого порядка с $g(t)=1$ и $k=1$}
-\label{ris:image}
-\end{figure}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+	xmin = 0,
+	ymin = 0,
+	xmax = 30,
+	xlabel = {\Large{$t,c$}},
+	ylabel = {\Large{$y$}},
+	width = 300,
+	legend pos = south east,
+	height = 250,
+	grid = both,
+	extra y ticks = { 0.6666, 0.909, 0.952},
+	extra y tick style={grid style={black, line width = 1}},
+	ytick = {0, 0.2, 0.4, 0.8, 1, 1.2}
+]
 
-\newpage
-\begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_3.png}}
-\caption{Схема моделирования системы с астатизмом нулевого порядка с $g(t)=1$ и $k=5$}
-\label{ris:image}
-\end{figure}
+\addplot[line width = 2] table [x=t, y=k_1] 
+              {data/1_1.txt};
+\addplot[line width = 2, loosely dashed,draw = green] table [x=t, y=k_5]
+			{data/1_1.txt};
+\addplot[line width = 2, dotted, draw = blue] table [x=t, y=k_10]
+			{data/1_1.txt};
 
-\begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_4.png}}
-\caption{Схема моделирования системы с астатизмом нулевого порядка с $g(t)=1$ и $k=10$}
-\label{ris:image}
+\legend{
+	$k=1$,
+	$k=5$,
+	$k=10$	
+	}
+\end{axis}
+\end{tikzpicture}
+\caption{Результаты моделирования при $g(t)=1$}
 \end{figure}
 
 \par 
@@ -122,30 +158,66 @@ c) $\varepsilon=0.05$ при $k=10$
 \newpage
 \par 
 Выведем завимость предельного значения установившейся ошибки $\varepsilon$ от $k$. На основе анализа структурной схемы системы можно записать:
-\par 
-$\displaystyle y=kW(s)e$
+\begin{align}
+\displaystyle y=kW(s)e
+\end{align}
+
 \par 
 Учитывая, что $y=kW(s)e$
-\par 
-$\displaystyle e(1+kW(s))=g$
-\par 
-$e=\displaystyle \frac{g}{1+kW(s)}=\frac{(3s+1)g}{3s+2k+1}$
+\begin{align}
+\displaystyle e(1+kW(s))=g
+\end{align} 
+
+\begin{align}
+e=\displaystyle \frac{g}{1+kW(s)}=\frac{(3s+1)g}{3s+2k+1}
+\end{align} 
+
 \par 
 В соответствии с теоремой о предельном переходе во временной области, с учётом, что $G(s)=\displaystyle \frac{1}{s}$, имеем:
+\begin{align}
+\varepsilon=\lim_{s\to 0}\displaystyle \frac{(3s+1)\frac{1}{s}s}{3s+2k+1}=\frac{1}{2k+1}
+\end{align} 
+
 \par 
-$\varepsilon=\lim_{s\to 0}\displaystyle \frac{(3s+1)\frac{1}{s}s}{3s+2k+1}=\frac{1}{2k+1}$
-\par 
-Выведем экспериментальный и расчётный графики зависимости $\varepsilon(k)$:
+Графики ошибок представлены на рисунке 3. 
 
 \begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_5.png}}
-\caption{Экспериментальный и расчётный графики зависимости $\varepsilon(k)$}
-\label{ris:image}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+	xmin = 0,
+	ymin = 0,
+	xmax = 30,
+	xlabel = {\Large{$t,c$}},
+	ylabel = {\Large{$y$}},
+	width = 300,
+	legend pos = north east,
+	height = 250,
+	grid = both,
+	extra y ticks = { 0.338, 0.09, 0.05},
+	extra y tick style={grid style={black, line width = 1}},
+	ytick = {0, 0.2, 0.8, 1, 1.2}
+]
+
+\addplot[line width = 2] table [x=t, y=k_1] 
+              {data/1_1_e.txt};
+\addplot[line width = 2, loosely dashed,draw = green] table [x=t, y=k_5]
+			{data/1_1_e.txt};
+\addplot[line width = 2, dotted, draw = blue] table [x=t, y=k_10]
+			{data/1_1_e.txt};
+
+\legend{
+	$k=1$,
+	$k=5$,
+	$k=10$	
+	}
+\end{axis}
+\end{tikzpicture}
+\caption{Результаты моделирования при $g(t)=1$}
 \end{figure}
 
-\newpage
 \par 
-Построим схему моделирования системы с астатизмом нулевого порядка, находящейся в режиме движения с постояной скоростью $g(t)=0.5t$, где $H(s)=k$:
+Построим схему моделирования системы с астатизмом нулевого порядка, находящейся в режиме движения с постояной скоростью $g(t)=0.5t$, где $H(s)=k$. Схема моделирования представлена на рисунке 4.
 
 \begin{figure}[h!]
 \center{\includegraphics[width=0.75\linewidth]{image/1_6.png}}
@@ -154,25 +226,42 @@ $\varepsilon=\lim_{s\to 0}\displaystyle \frac{(3s+1)\frac{1}{s}s}{3s+2k+1}=\frac
 \end{figure}
 
 \par 
-Промоделируем данную систему и получим переходные процессы для $k=1,5,10$ на интервале времени $t=30c$:
-
-\begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_7.png}}
-\caption{График переходного процесса при $g(t) = 0.5t$ и $k = 1$}
-\label{ris:image}
-\end{figure}
+Промоделируем данную систему и получим переходные процессы для $k=1,5,10$ на интервале времени $t=30c$. Результаты моделирования представлены на рисунке 5.
 
 \newpage
 \begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_8.png}}
-\caption{График переходного процесса при $g(t) = 0.5t$ и $k = 5$}
-\label{ris:image}
-\end{figure}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+	xmin = 0,
+	ymin = 0,
+	xmax = 30,
+	xlabel = {\Large{$t,c$}},
+	ylabel = {\Large{$y$}},
+	width = 300,
+	legend pos = south east,
+	height = 250,
+	grid = both,
+	%extra y ticks = { 0.6666, 0.909, 0.952},
+	%extra y tick style={grid style={black, line width = 1}},
+	%ytick = {0, 0.2, 0.4, 0.8, 1, 1.2}
+]
 
-\begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_9.png}}
-\caption{График переходного процесса при $g(t) = 0.5t$ и $k = 10$}
-\label{ris:image}
+\addplot[line width = 2] table [x=t, y=k_1] 
+              {data/1_2.txt};
+\addplot[line width = 2, loosely dashed,draw = green] table [x=t, y=k_5]
+			{data/1_2.txt};
+\addplot[line width = 2, dotted, draw = blue] table [x=t, y=k_10]
+			{data/1_2.txt};
+
+\legend{
+	$k=1$,
+	$k=5$,
+	$k=10$	
+	}
+\end{axis}
+\end{tikzpicture}
+\caption{Результаты моделирования при $g(t)=0.5t$}
 \end{figure}
 
 \newpage
@@ -191,7 +280,7 @@ $g(t)=0.5t$
 $g(t)=0.25t^2$
 
 \par 
-Построим схему моделирования системы с астатизмом первого порядка, находящейся в стационарном режиме работы $g(t) = 1$, где  $H(s)=\frac{k}{s}$:
+Построим схему моделирования системы с астатизмом первого порядка, находящейся в стационарном режиме работы $g(t) = 1$, где  $H(s)=\frac{k}{s}$. Схема моделирования представлены на рисунке 6.
 
 \begin{figure}[h!]
 \center{\includegraphics[width=0.75\linewidth]{image/1_10.png}}
@@ -201,25 +290,41 @@ $g(t)=0.25t^2$
 
 
 \par 
-Промоделируем данную систему и получим переходные процессы для $k = 1, 5, 10$:
-
-'\begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_11.png}}
-\caption{График переходного процесса при $g(t) = 1$ и $k = 1$}
-\label{ris:image}
-\end{figure}
-
-\newpage
-\begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_12.png}}
-\caption{График переходного процесса при $g(t) = 1$ и $k = 5$}
-\label{ris:image}
-\end{figure}
+Промоделируем данную систему и получим переходные процессы для $k = 1, 5, 10$. Результаты моделирования представлены на рисунке 7.
 
 \begin{figure}[h!]
-\center{\includegraphics[width=0.7\linewidth]{image/1_13.png}}
-\caption{График переходного процесса при $g(t) = 1$ и $k = 10$}
-\label{ris:image}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+	xmin = 0,
+	ymin = 0,
+	xmax = 30,
+	xlabel = {\Large{$t,c$}},
+	ylabel = {\Large{$y$}},
+	width = 300,
+	legend pos = south east,
+	height = 250,
+	grid = both,
+	%extra y ticks = { 0.998, , 0.952},
+	%extra y tick style={grid style={black, line width = 1}},
+	%ytick = {0, 0.2, 0.4, 0.8, 1, 1.2}
+]
+
+\addplot[line width = 2] table [x=t, y=k_1] 
+              {data/2_1.txt};
+\addplot[line width = 2, loosely dashed,draw = green] table [x=t, y=k_5]
+			{data/2_1.txt};
+\addplot[line width = 2, dotted, draw = blue] table [x=t, y=k_10]
+			{data/2_1.txt};
+
+\legend{
+	$k=1$,
+	$k=5$,
+	$k=10$	
+	}
+\end{axis}
+\end{tikzpicture}
+\caption{Результаты моделирования при $g(t)=1$}
 \end{figure}
 
 \newpage
@@ -229,32 +334,70 @@ $g(t)=0.25t^2$
 $\varepsilon = 0$ при $k = 1$, $k = 5$ и $k = 10$
 \par 
 Выведем зависимость  предельного значения установившейся ошибки $\varepsilon$ от $k$. На основе анализа структурной схемы системы можно записать:
-\par 
-$\displaystyle y=W(s)\frac{k}{s}e$
+\begin{align}
+\displaystyle y=W(s)\frac{k}{s}e
+\end{align}
+
 \par 
 Учитывая, что $y = g – e$, преобразуем:
-\par 
-$\displaystyle g-e=W(s)\frac{k}{s}e$
-\par 
-$\displaystyle e(1+W(s)\frac{k}{s})=g$
-\par 
-$e=\displaystyle\frac{g}{1+W(s)\frac{k}{s}}=\frac{(3s^2+s)g}{3s^2+s+2k}$
+\begin{align}
+\displaystyle g-e=W(s)\frac{k}{s}e
+\end{align} 
+
+\begin{align}
+\displaystyle e(1+W(s)\frac{k}{s})=g
+\end{align} 
+
+\begin{align}
+e=\displaystyle\frac{g}{1+W(s)\frac{k}{s}}=\frac{(3s^2+s)g}{3s^2+s+2k}
+\end{align} 
+
 \par 
 В соответствии с теоремой о предельном переходе во временной области, с учетом, что $G(s) = 1/s$, имеем: 
-\par 
-$\varepsilon=\lim_{s\to 0}\displaystyle\frac{(3s^2+s)\frac{1}{s}s}{3s^2+s+2k}=0$
-\par 
-Выведем экспериментальный и расчетный графики зависимости $\varepsilon(k)$:
+\begin{align}
+\varepsilon=\lim_{s\to 0}\displaystyle\frac{(3s^2+s)\frac{1}{s}s}{3s^2+s+2k}=0
+\end{align}
 
-\newpage
+\par 
+Графики ошибок представлены на рисунке 8.
+
 \begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_14.png}}
-\caption{Экспериментальный и расчетный графики зависимости $\varepsilon(k)$:}
-\label{ris:image}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+	xmin = 0,
+	xmax = 30,
+	xlabel = {\Large{$t,c$}},
+	ylabel = {\Large{$y$}},
+	width = 300,
+	legend pos = south east,
+	height = 250,
+	grid = both,
+	%extra y ticks = { 0.6666, 0.909, 0.952},
+	%extra y tick style={grid style={black, line width = 1}},
+	%ytick = {0, 0.2, 0.4, 0.8, 1, 1.2}
+]
+
+\addplot[line width = 2] table [x=t, y=k_1] 
+              {data/2_1_e.txt};
+\addplot[line width = 2, loosely dashed,draw = green] table [x=t, y=k_5]
+			{data/2_1_e.txt};
+\addplot[line width = 2, dotted, draw = blue] table [x=t, y=k_10]
+			{data/2_1_e.txt};
+
+\legend{
+	$k=1$,
+	$k=5$,
+	$k=10$	
+	}
+\end{axis}
+\end{tikzpicture}
+\caption{Результаты моделирования при $g(t)=1$}
 \end{figure}
 
+\newpage
 \par 
-Построим схему моделирования системы с астатизмом первого порядка, движущейся с постоянной скоростью $g(t) = 0.5t$, где $H(s)=k/s$:
+Построим схему моделирования системы с астатизмом первого порядка, движущейся с постоянной скоростью $g(t) = 0.5t$, где $H(s)=k/s$. Схема моделирования представлена на рисунке 9.
 
 \begin{figure}[h!]
 \center{\includegraphics[width=0.75\linewidth]{image/1_15.png}}
@@ -263,57 +406,91 @@ $\varepsilon=\lim_{s\to 0}\displaystyle\frac{(3s^2+s)\frac{1}{s}s}{3s^2+s+2k}=0$
 \end{figure}
 
 \par 
-Промоделируем данную систему и получим переходные процессы для $k = 1, 5, 10$ на интервале времени $t = 30c$:
-
-\newpage
-\begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_16.png}}
-\caption{График переходного процесса при $g(t) = 0.5t$ и $k = 1$}
-\label{ris:image}
-\end{figure}
+Промоделируем данную систему и получим переходные процессы для $k = 1, 5, 10$ на интервале времени $t = 30c$. Результаты моделирования представлены на рисунке 10.
 
 \begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_17.png}}
-\caption{График переходного процесса при $g(t) = 0.5t$ и $k = 5$}
-\label{ris:image}
-\end{figure}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+	xmin = 0,
+	xmax = 30,
+	xlabel = {\Large{$t,c$}},
+	ylabel = {\Large{$y$}},
+	width = 300,
+	legend pos = south east,
+	height = 250,
+	grid = both,
+	%extra y ticks = { 0.6666, 0.909, 0.952},
+	%extra y tick style={grid style={black, line width = 1}},
+	%ytick = {0, 0.2, 0.4, 0.8, 1, 1.2}
+]
 
-\newpage
-\begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_18.png}}
-\caption{График переходного процесса при $g(t) = 0.5t$ и $k = 10$}
-\label{ris:image}
+\addplot[line width = 2] table [x=t, y=k_1] 
+              {data/2_2.txt};
+\addplot[line width = 2, loosely dashed,draw = green] table [x=t, y=k_5]
+			{data/2_2.txt};
+\addplot[line width = 2, dotted, draw = blue] table [x=t, y=k_10]
+			{data/2_2.txt};
+
+\legend{
+	$k=1$,
+	$k=5$,
+	$k=10$	
+	}
+\end{axis}
+\end{tikzpicture}
+\caption{Результаты моделирования при $g(t)=0.5t$}
 \end{figure}
 
 \par 
 Из графиков переходных процессов определим предельное значение установившейся ошибки $\varepsilon$:
 \par 
-a)	$\varepsilon = 0.24$ при $k = 1$
+a)	$\varepsilon = 0.0786$ при $k = 1$
 \par 
-b)	$\varepsilon = 0.049$ при $k = 5$
+b)	$\varepsilon = 0.1455$ при $k = 5$
 \par 
-c)	$\varepsilon = 0.025$ при $k = 10$
-
-\par 
-Выведем зависимость  предельного значения установившейся ошибки $\varepsilon$ от $k$. На основе выводов, сделанных  при анализе стационарного режима, получаем:
-\par 
-$e=\displaystyle\frac{g}{1+W(s)\frac{k}{s}}=\frac{(3s^2+s)g}{3s^2+s+2k}$
-\par 
-В соответствии с теоремой о предельном переходе во временной области, с учетом, что $G(s) = \frac{0.5}{s^2}$ , имеем:
-\par 
-$\varepsilon=\lim_{s\to 0}\displaystyle\frac{(3s^2+s)\frac{0.5}{s^2}s}{3s^2+s+2k}=\frac{0.5}{2k}$
-\par 
-Выведем экспериментальный и расчетный графики зависимости $\varepsilon(k)$:
+c)	$\varepsilon = 0.7373$ при $k = 10$
 
 \newpage
+\par 
+Графики ошибок представлены на рисунке 11.
+
 \begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_19.png}}
-\caption{Экспериментальный и расчетный графики зависимости $\varepsilon(k)$}
-\label{ris:image}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+	xmin = 0,
+	xmax = 30,
+	xlabel = {\Large{$t,c$}},
+	ylabel = {\Large{$y$}},
+	width = 300,
+	legend pos = north east,
+	height = 250,
+	grid = both,
+	extra y ticks = { 0.0786, 0.1455, 0.737},
+	extra y tick style={grid style={black, line width = 1}},
+	ytick = { 0.4, 1.2}
+]
+
+\addplot[line width = 2] table [x=t, y=k_1] 
+              {data/2_2_e.txt};
+\addplot[line width = 2, loosely dashed,draw = green] table [x=t, y=k_5]
+			{data/2_2_e.txt};
+\addplot[line width = 2, dotted, draw = blue] table [x=t, y=k_10]
+			{data/2_2_e.txt};
+
+\legend{
+	$k=1$,
+	$k=5$,
+	$k=10$	
+	}
+\end{axis}
+\end{tikzpicture}
+\caption{Результаты моделирования при $g(t)=0.5t$}
 \end{figure}
 
 \par 
-Построим схему моделирования системы с астатизмом первого порядка, движущейся с постоянным ускорением $g(t)=0.25t^2$, где $H(s)=\frac{k}{s}$:
+Построим схему моделирования системы с астатизмом первого порядка, движущейся с постоянным ускорением $g(t)=0.25t^2$, где $H(s)=\frac{k}{s}$. Схема моделирования представлена на рисунке 12. 
 
 \begin{figure}[h!]
 \center{\includegraphics[width=0.75\linewidth]{image/1_20.png}}
@@ -322,26 +499,78 @@ $\varepsilon=\lim_{s\to 0}\displaystyle\frac{(3s^2+s)\frac{0.5}{s^2}s}{3s^2+s+2k
 \end{figure}
 
 \par 
-Промоделируем данную систему и получим переходные процессы для $k = 1, 5, 10$ на интервале времени $t = 30c$:
+Промоделируем данную систему и получим переходные процессы для $k = 1, 5, 10$ на интервале времени $t = 30c$. Результаты моделирования представлены на рисунке 13. 
 
 \newpage
 \begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_21.png}}
-\caption{График переходного процесса при $g(t)=0.25t^2$ и $k = 1$}
-\label{ris:image}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+	xmin = 0,
+	xmax = 30,
+	xlabel = {\Large{$t,c$}},
+	ylabel = {\Large{$y$}},
+	width = 300,
+	legend pos = north west,
+	height = 250,
+	grid = both,
+	%extra y ticks = { 0.0786, 0.1455, 0.737},
+	%extra y tick style={grid style={black, line width = 1}},
+	%ytick = { 0.4, 1.2}
+]
+
+\addplot[line width = 2] table [x=t, y=k_1] 
+              {data/2_3.txt};
+\addplot[line width = 2, loosely dashed,draw = green] table [x=t, y=k_5]
+			{data/2_3.txt};
+\addplot[line width = 2, dotted, draw = blue] table [x=t, y=k_10]
+			{data/2_3.txt};
+
+\legend{
+	$k=1$,
+	$k=5$,
+	$k=10$	
+	}
+\end{axis}
+\end{tikzpicture}
+\caption{Результаты моделирования при $g(t)=0.25t^2$}
 \end{figure}
 
-\begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_22.png}}
-\caption{График переходного процесса при $g(t)=0.25t^2$ и $k = 5$}
-\label{ris:image}
-\end{figure}
+\par 
+Графики ошибок представлены на рисунке 14.
 
-\newpage
 \begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_23.png}}
-\caption{График переходного процесса при $g(t)=0.25t^2$ и $k = 10$}
-\label{ris:image}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+	xmin = 0,
+	xmax = 30,
+	xlabel = {\Large{$t,c$}},
+	ylabel = {\Large{$y$}},
+	width = 300,
+	legend pos = north east,
+	height = 250,
+	grid = both,
+	%extra y ticks = { 0.0786, 0.1455, 0.737},
+	%extra y tick style={grid style={black, line width = 1}},
+	%ytick = { 0.4, 1.2}
+]
+
+\addplot[line width = 2] table [x=t, y=k_1] 
+              {data/2_3_e.txt};
+\addplot[line width = 2, loosely dashed,draw = green] table [x=t, y=k_5]
+			{data/2_3_e.txt};
+\addplot[line width = 2, dotted, draw = blue] table [x=t, y=k_10]
+			{data/2_3_e.txt};
+
+\legend{
+	$k=1$,
+	$k=5$,
+	$k=10$	
+	}
+\end{axis}
+\end{tikzpicture}
+\caption{Результаты моделирования при $g(t)=0.25t^2$}
 \end{figure}
 
 \newpage
@@ -356,6 +585,8 @@ $W(s)=\displaystyle\frac{2}{(3s+1)}$
 $f_1=1$
 \par 
 $f_2=-0.5$
+\par 
+Схема моделирования представлена на рисунке 15. 
 
 \begin{figure}[h!]
 \center{\includegraphics[width=0.75\linewidth]{image/1_24.png}}
@@ -364,22 +595,36 @@ $f_2=-0.5$
 \end{figure}
 
 \par 
-	Промоделируем данную систему, полагая $g(t)=1(t)$  и $f_2=0$, и получим переходный процесс:
+Промоделируем данную систему при различных возмущающих воздействиях и получим переходный процесс. Результаты моделирования представлены на рисунке 16.
 	
 \begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_25.png}}
-\caption{График переходного процесса при $g(t)=1(t)$  и $f_2=0$}
-\label{ris:image}
-\end{figure}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+	xmin = 0,
+	xmax = 30,
+	xlabel = {\Large{$t,c$}},
+	ylabel = {\Large{$y$}},
+	width = 300,
+	legend pos = north east,
+	height = 250,
+	grid = both,
+	extra y ticks = { 0.4999},
+	extra y tick style={grid style={black, line width = 1}}
+]
 
-\par 
-Выведем график ошибки слежения:
+\addplot[line width = 2] table [x=t, y=f_1] 
+              {data/3_2.txt};
+\addplot[line width = 2, loosely dashed,draw = green] table [x=t, y=f_2]
+			{data/3_2.txt};
 
-\newpage
-\begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_26.png}}
-\caption{График ошибки слежения $e(t)$ при $g(t)=1(t)$  и $f_2=0$}
-\label{ris:image}
+\legend{
+	$f_1 = 1 | f_2 = 0$,
+	$f_2 = -0.5 | f_1 = 0$
+	}
+\end{axis}
+\end{tikzpicture}
+\caption{Результаты моделирования при различных внешних возмущениях}
 \end{figure}
 
 \par 	
@@ -387,62 +632,101 @@ $f_2=-0.5$
 
 \par 
 Произведем аналитический расчет установившейся ошибки $\varepsilon$ при $g(t)=1(t)$  и $f_2=0$. На основе анализа структурной схемы системы можно записать:
-\par 
-$\displaystyle y=W(s)(f_1+\frac{1}{s}e)$
+\begin{align}
+\displaystyle y=W(s)(f_1+\frac{1}{s}e)
+\end{align} 
+
 \par 
 Выразим $e$, предварительно заменив $y=g-e$:
-\par 
-$\displaystyle g-e=W(s)(f_1+\frac{1}{s}e)$
-\par 
-$\displaystyle e(1+W(s)\frac{1}{s})=g-W(s)f_1$
-\par 
-$e=\displaystyle \frac{g}{1+W(s)\frac{1}{s}}-\frac{W(s)f_1}{1+W(s)\frac{1}{s}}$
-\par 
-$e=\displaystyle \frac{(3s^2+s)g}{3s^2+s+2}-\frac{2sf_1}{3s^2+s+2}$
+\begin{align}
+\displaystyle g-e=W(s)(f_1+\frac{1}{s}e)
+\end{align}
+
+\begin{align}
+\displaystyle e(1+W(s)\frac{1}{s})=g-W(s)f_1
+\end{align}
+
+\begin{align}
+e=\displaystyle \frac{g}{1+W(s)\frac{1}{s}}-\frac{W(s)f_1}{1+W(s)\frac{1}{s}}
+\end{align}
+
+\begin{align}
+e=\displaystyle \frac{(3s^2+s)g}{3s^2+s+2}-\frac{2sf_1}{3s^2+s+2}
+\end{align}
+
 \par 
 В соответствии с теоремой о предельном переходе во временной области, с учетом, что $G(s) = \frac{1}{s}$, $F1= \frac{1}{s}$ имеем:
-\par 
-$\varepsilon=\lim_{s\ to 0}\displaystyle\frac{(3s^2+s)\frac{1}{s}s}{3s^2+s+2}-\frac{2s\frac{1}{s}s}{3s^2+s+2}=0$
-\par 
-Промоделируем данную систему, полагая $g(t)=1(t)$  и $f_1=0$, и получим переходный процесс:
+\begin{align}
+\varepsilon=\lim_{s\ to 0}\displaystyle\frac{(3s^2+s)\frac{1}{s}s}{3s^2+s+2}-\frac{2s\frac{1}{s}s}{3s^2+s+2}=0
+\end{align}
 
-\newpage
-\begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_27.png}}
-\caption{График переходного процесса при $g(t)=1(t)$  и $f_1=0$}
-\label{ris:image}
-\end{figure}
-
-\par 
-Выведем график ошибки слежения:
-
-\begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_28.png}}
-\caption{График ошибки слежения $e(t)$  при $g(t)=1(t)$  и $f_1=0$}
-\label{ris:image}
-\end{figure}
 
 \par 
 	Из графика переходного процесса определяем предельное значение установившейся ошибки: $\varepsilon = 0.5$ при $g(t)=1(t)$  и $f_1=0$.
 \par 
 Произведем аналитический расчет установившейся ошибки $\varepsilon$ при $g(t)=1(t)$  и $f_1=0$. На основе анализа структурной схемы системы можно записать:
-\newpage
-\par 
-$\displaystyle y=W(s)\frac{1}{s}(f_2+e)$
+
+\begin{align}
+\displaystyle y=W(s)\frac{1}{s}(f_2+e)
+\end{align} 
+
 \par 
 Выразим $e$, предварительно заменив $y = g – e$:
-\par 
-$\displaystyle g-e=W(s)\frac{1}{s}f_2$
-\par 
-$\displaystyle e(W(s)\frac{1}{s}+1)=g-W(s)\frac{1}{s}f_2$
-\par 
-$e=\displaystyle\frac{g}{W(s)\frac{1}{s}+1}-\frac{W(s)\frac{1}{s}f_2}{W(s)\frac{1}{s}+1}$
-\par 
-$e=\displaystyle\frac{(3s^2+s)g}{3s^2+s+2}-\frac{2f_2}{3s^2+s+2}$
+\begin{align}
+\displaystyle g-e=W(s)\frac{1}{s}f_2
+\end{align} 
+
+\begin{align}
+\displaystyle e(W(s)\frac{1}{s}+1)=g-W(s)\frac{1}{s}f_2
+\end{align}
+
+\begin{align}
+e=\displaystyle\frac{g}{W(s)\frac{1}{s}+1}-\frac{W(s)\frac{1}{s}f_2}{W(s)\frac{1}{s}+1}
+\end{align}
+
+\begin{align}
+e=\displaystyle\frac{(3s^2+s)g}{3s^2+s+2}-\frac{2f_2}{3s^2+s+2}
+\end{align}
+
 \par 
 	В соответствии с теоремой о предельном переходе во временной области, с учетом, что $\displaystyle G(s) = \frac{1}{s}$, $\displaystyle F1= \frac{-0.5}{s}$ имеем:
-\par 
-$\varepsilon=\lim_{s\to 0}\displaystyle\frac{(3s^2+s)\frac{1}{s}s}{3s^2+s+2}-\frac{2\frac{-0.5}{s}s}{3s^2+s+2}=0.5$
+\begin{align}
+\varepsilon=\lim_{s\to 0}\displaystyle\frac{(3s^2+s)\frac{1}{s}s}{3s^2+s+2}-\frac{2\frac{-0.5}{s}s}{3s^2+s+2}=0.5
+\end{align}
+
+
+Графики ошибок слежения представлены на рисунке 17.
+
+\newpage
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+	xmin = 0,
+	xmax = 30,
+	xlabel = {\Large{$t,c$}},
+	ylabel = {\Large{$y$}},
+	width = 300,
+	legend pos = north east,
+	height = 250,
+	grid = both,
+	extra y ticks = { 0.499},
+	extra y tick style={grid style={black, line width = 1}}
+]
+
+\addplot[line width = 2] table [x=t, y=f_1] 
+              {data/3_2_e.txt};
+\addplot[line width = 2, loosely dashed,draw = green] table [x=t, y=f_2]
+			{data/3_2_e.txt};
+
+\legend{
+	$f_1 = 1 | f_2 = 0$,
+	$f_2 = -0.5 | f_1 = 0$
+	}
+\end{axis}
+\end{tikzpicture}
+\caption{Графики ошибок слежения при различных возмущающих воздействиях}
+\end{figure}
 
 \newpage
 \begin{center}
@@ -456,7 +740,8 @@ $\displaystyle W(s)=  \frac{2}{3s+1}$
 $\displaystyle g(t)=2+3sin(0.5t)$
 \par 
 $H(s)=1$
-
+\par 
+Схема моделирования представлена на рисунке 18. 
 \begin{figure}[h!]
 \center{\includegraphics[width=0.75\linewidth]{image/1_29.png}}
 \caption{Схема моделирования системы с отрицательной обратной связью}
@@ -464,88 +749,172 @@ $H(s)=1$
 \end{figure}
 
 \par 
-Промоделируем данную систему и получим графики переходного процесса и установившейся ошибки $e_y(t)$:
+Промоделируем данную систему и получим графики $y(t)$, $g(t)$ и $e_y(t)$:
 
 \begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_30.png}}
-\caption{График переходного процесса }
-\label{ris:image}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+	xmin = 0,
+	xmax = 30,
+	xlabel = {\Large{$t,c$}},
+	ylabel = {\Large{$y$}},
+	width = 300,
+	legend pos = north east,
+	height = 250,
+	grid = both,
+	%extra y ticks = { 0.0786, 0.1455, 0.737},
+	%extra y tick style={grid style={black, line width = 1}},
+	%ytick = { 0.4, 1.2}
+]
+
+\addplot[line width = 2] table [x=t, y=y] 
+              {data/4_1.txt};
+\addplot[line width = 2, loosely dashed,draw = green] table [x=t, y=g]
+			{data/4_1.txt};
+\addplot[line width = 2, dotted, draw = blue] table [x=t, y=e]
+			{data/4_1.txt};
+
+\legend{
+	$y(t)$,
+	$g(t)$,
+	$e_y(t)$	
+	}
+\end{axis}
+\end{tikzpicture}
+\caption{Результаты моделирования при $g(t)=2+3sin(0.5t)$}
 \end{figure}
 
-\newpage
-\begin{figure}[h!]
-\center{\includegraphics[width=0.75\linewidth]{image/1_31.png}}
-\caption{График установившейся ошибки $e_y(t)$}
-\label{ris:image}
-\end{figure}
+\par 
+Получим приближенное аналитическое выражение для $e_y(t)$. Выходная переменная и ошибка связаны следующим выражением:
+\begin{align}
+\displaystyle y(t)= W(s)_0e_y(t)
+\end{align}
 
-\par 
-	Получим приближенное аналитическое выражение для $e_y(t)$. Выходная переменная и ошибка связаны следующим выражением:
-\par 
-$\displaystyle y(t)= W(s)_0e_y(t)$
-\par 
-$\displaystyle W(s)_0=H(s)W(s)$
+\begin{align}
+\displaystyle W(s)_0=H(s)W(s)
+\end{align}
+
 \par 
 Так как в нашем случае $H(s) = 1$, то:
-\par 
-$\displaystyle W(s)_0=H(s)W(s)$
+\begin{align}
+\displaystyle W(s)_0=H(s)W(s)
+\end{align} 
+
 \par 
 Пользуясь тем, что 
-\par 
-$\displaystyle e_y(t)=g(t)-y(t)$
+\begin{align}
+\displaystyle e_y(t)=g(t)-y(t)
+\end{align}
+
 \par 
 получим:
-\par 
-$\displaystyle y(t)=W(s)(g(t)-y(t))$
-\par 
-$y(t)=\displaystyle\frac{W(s)}{1+W(s)}g(t)$
+\begin{align}
+\displaystyle y(t)=W(s)(g(t)-y(t))
+\end{align} 
+
+\begin{align}
+y(t)=\displaystyle\frac{W(s)}{1+W(s)}g(t)
+\end{align} 
+
 \par 
 Обозначим
-\par 
-$\phi(s)=\displaystyle\frac{W(s)}{1+W(s)}=\frac{2}{3s+1}*\frac{1}{1+\frac{2}{3s+1}}$
-\par 
-$\phi(s)=\displaystyle\frac{2}{3(s+1)}$
+\begin{align}
+\phi(s)=\displaystyle\frac{W(s)}{1+W(s)}=\frac{2}{3s+1}*\frac{1}{1+\frac{2}{3s+1}}
+\end{align} 
+
+\begin{align}
+\phi(s)=\displaystyle\frac{2}{3(s+1)}
+\end{align}
+
 \par 
 	Функцию $\phi(s)$ можно разложим в ряд Маклорена, ограничившись первыми тремя членами:
-\par 
-$\displaystyle \phi(s)=\phi(0)+\phi(0)^{(1)}s+\frac{\phi(0)^{(2)}s^2}{2!}$
-\par 
-$\displaystyle \phi(0)=c_0=\frac{2}{3}$
-\par 
-$\phi(0)^{(1)}=c_1=\displaystyle\frac{-2}{3(s+1)^2}=-\frac{2}{3}$
-\par 
-$\phi(0)^{(2)}=c_2=\displaystyle\frac{4}{3(s+1)^3}=\frac{4}{3}$
+\begin{align}
+\displaystyle \phi(s)=\phi(0)+\phi(0)^{(1)}s+\frac{\phi(0)^{(2)}s^2}{2!}
+\end{align}
+
+\begin{align}
+\displaystyle \phi(0)=c_0=\frac{2}{3}
+\end{align} 
+
+\begin{align}
+\phi(0)^{(1)}=c_1=\displaystyle\frac{-2}{3(s+1)^2}=-\frac{2}{3}
+\end{align} 
+
+\begin{align}
+\phi(0)^{(2)}=c_2=\displaystyle\frac{4}{3(s+1)^3}=\frac{4}{3}
+\end{align} 
+
 \par 
 В итоге окончательно получаем:
-\par 
-$\displaystyle e_y(t)=g(t)-y(t)=g(t)-(\phi(0)+\phi(0)^{(1)}s+\frac{\phi(0)^{(2)}s^2}{2!})g(t)$
-\par 
-$\displaystyle e_y(t)=(1-\phi(0))g(t)-\phi(0)^{(1)}sg(t)-\frac{\phi(0)^{(2)}s^2}{2!})g(t)$
+\begin{align}
+\displaystyle e_y(t)=g(t)-y(t)=g(t)-(\phi(0)+\phi(0)^{(1)}s+\frac{\phi(0)^{(2)}s^2}{2!})g(t)
+\end{align} 
+
+\begin{align}
+\displaystyle e_y(t)=(1-\phi(0))g(t)-\phi(0)^{(1)}sg(t)-\frac{\phi(0)^{(2)}s^2}{2!})g(t)
+\end{align}
+
 \par 
 Или, переходя к записи через производные:
-\par 
-$\displaystyle e_y(t)=(1-c_0)g(t)-c_1g(t)^{(1)}-\frac{c_2}{2}g(t)^{(2)}$
+\begin{align}
+\displaystyle e_y(t)=(1-c_0)g(t)-c_1g(t)^{(1)}-\frac{c_2}{2}g(t)^{(2)}
+\end{align}
+
 \par 
 Вычислим производные входного воздействия:
+\begin{align}
+\displaystyle g(t)=2+3sin(0.5t)
+\end{align} 
+
+\begin{align}
+\displaystyle g(t)^{(1)}=1.5cos(0.5t)
+\end{align} 
+
+\begin{align}
+\displaystyle g(t)^{(2)}=-0.75sin(0.5t)
+\end{align} 
+
 \par 
-$\displaystyle g(t)=2+3sin(0.5t)$
+
+Получим приближенное аналитическое выражение для $e_y(t)$:
+\begin{align}
+\displaystyle e_y(t)\approx\frac{2}{3}+1.5sin(0.5t)+cos(0.5t)
+\end{align}
+
 \par 
-$\displaystyle g(t)^{(1)}=1.5cos(0.5t)$
-\par 
-$\displaystyle g(t)^{(2)}=-0.75sin(0.5t)$
-\par 
+Построим по полученному выражению график и сравним со смоделированным ранее графиком ошибки. Графики представлены на рисунке 20.
 
 \newpage
-Получим приближенное аналитическое выражение для $e_y(t)$:
-\par 
-$\displaystyle e_y(t)\approx\frac{2}{3}+1.5sin(0.5t)+cos(0.5t)$
-\par 
-Построим по полученному выражению график:
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+	xmin = 0,
+	xmax = 30,
+	xlabel = {\Large{$t,c$}},
+	ylabel = {\Large{$y$}},
+	width = 300,
+	legend pos = north east,
+	height = 250,
+	grid = both,
+	%extra y ticks = { 0.0786, 0.1455, 0.737},
+	%extra y tick style={grid style={black, line width = 1}},
+	%ytick = { 0.4, 1.2}
+]
 
-\begin{figure}[h]
-\center{\includegraphics[width=0.75\linewidth]{image/1_32.png}}
-\caption{График, построенный на основе приближенного выражения для установившейся ошибки $e_y(t)$}
-\label{ris:image}
+\addplot[line width = 2] table [x=t, y=e_model] 
+              {data/4_2_e_anal.txt};
+\addplot[line width = 2, loosely dashed,draw = green] table [x=t, y=e_anal]
+			{data/4_2_e_anal.txt};
+
+\legend{
+	$e_{model}$,
+	$e_{anal}$
+	}
+\end{axis}
+\end{tikzpicture}
+\caption{Графики ошибок}
 \end{figure}
 
 \newpage
@@ -553,5 +922,9 @@ $\displaystyle e_y(t)\approx\frac{2}{3}+1.5sin(0.5t)+cos(0.5t)$
 \section*{Вывод}
 \end{center}
 \par 
-В ходе проведения данной лабораторной работы были исследованы такие режимы работы систем с астатизмом нулевого и первого порядков, как стационарный, режим движения с постоянной скоростью и режим движения с постоянным ускорением, и построены графики переходных процессов для каждого из режимов. Причем для стационарного режима работы систем с астатизмом нулевого и первого порядков и для режима движения системы первого порядка с постоянной скоростью были получены предельные значения установившейся ошибки $\varepsilon$ при различных значениях параметра $k$ передаточной функции регулятора $H(s)$, а также сделан аналитический вывод зависимости $\varepsilon(k)$ для проверки правильности проведения эксперимента. Проверка показала полное соответствие экспериментальных данных расчетным. Аналогичные выкладки были сделаны и при исследовании возмущенной системы, где также были получены графики переходных процессов и предельные значения установившейся ошибки $\varepsilon$ при различных значениях параметра $k$ передаточной функции регулятора $H(s)$. Аналитический расчет полностью подтверждают данные эксперимента. На последнем этапе данной лабораторной работы было произведено исследование установившейся ошибки $e_y(t)$ при синусоидальном входном воздействии и возможность при аналитическом выводе выражение для $e_y(t)$ ограничиться тремя членами ряда Маклорена. Сравнение графика расчетной $e_y(t)$ с графиком экспериментальной $e_y(t)$ показало, что ограничение возможно с учетом той погрешности, которая возникает при отбрасывании остальных членов. 
+В ходе проведения данной лабораторной работы были исследованы такие режимы работы систем с астатизмом нулевого и первого порядков, как стационарный, режим движения с постоянной скоростью и режим движения с постоянным ускорением; построены графики переходных процессов для каждого из режимов. 
+\par 
+Причем для стационарного режима работы систем с астатизмом нулевого и первого порядков и для режима движения системы первого порядка с постоянной скоростью были получены предельные значения установившейся ошибки $\varepsilon$ при различных значениях параметра $k$ передаточной функции регулятора $H(s)$, а также сделан аналитический вывод зависимости $\varepsilon(k)$ для проверки правильности проведения эксперимента. Проверка показала полное соответствие экспериментальных данных расчетным. Аналогичные выкладки были сделаны и при исследовании возмущенной системы, где также были получены графики переходных процессов и предельные значения установившейся ошибки $\varepsilon$ при различных значениях параметра $k$ передаточной функции регулятора $H(s)$. Аналитический расчет полностью подтверждают данные эксперимента. 
+\par 
+На последнем этапе данной лабораторной работы было произведено исследование установившейся ошибки $e_y(t)$ при синусоидальном входном воздействии и возможность при аналитическом выводе выражение для $e_y(t)$ ограничиться тремя членами ряда Маклорена. Сравнение графика расчетной $e_y(t)$ с графиком экспериментальной $e_y(t)$ показало, что ограничение возможно с учетом той погрешности, которая возникает при отбрасывании остальных членов. 
 \end{document}

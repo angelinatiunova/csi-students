@@ -1,0 +1,453 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage[T1, T2A]{fontenc}
+\usepackage{graphicx}
+
+\usepackage{pgfplots}
+\usetikzlibrary{pgfplots.polar}
+\pgfplotsset{compat=1.13, grid=major}
+\usepackage[left = 2cm, right = 2cm, bottom = 2cm, top = 2cm]{geometry}
+\usepackage[top=2cm, left=2cm, right=2cm, left=2cm]{geometry}
+\usepackage{amsmath}
+
+\usepackage{tabu}
+\usepackage{threeparttablex} 
+\usepackage{booktabs} 
+\usepackage[tableposition=top]{caption}
+
+\usepackage{subcaption}
+\DeclareCaptionLabelFormat{gostfigure}{Рисунок #2}
+\DeclareCaptionLabelFormat{gosttable}{Таблица #2}
+\DeclareCaptionLabelSeparator{gost}{~---~}
+\captionsetup{labelsep=gost}
+\captionsetup[figure]{labelformat=gostfigure}
+\captionsetup[table]{labelformat=gosttable}
+\renewcommand{\thesubfigure}{\asbuk{subfigure}}
+\captionsetup[table]{labelformat=simple, labelsep = endash, justification = raggedright, singlelinecheck = off}
+\usepackage{indentfirst}
+\graphicspath{{image/}}
+\newcommand\tline[2]{$\underset{\text{#1}}{\text{\underline{\hspace{#2}}}}$}
+
+% PGFPlots Table ========================================================
+\usepackage{pgfplotstable}
+\renewcommand{\arraystretch}{1.5}
+% pgfplotstable settings
+\pgfplotstableset{
+    columns/w/.style = {column name = {\boldmath$\omega$}, column type = |c},
+    columns/lg_w/.style = {column name = {\boldmath$\lg{\omega}$}, column type = |c},
+    columns/A/.style = {column name = {\boldmath$A(\omega)$}, column type = |c},
+    columns/L/.style = {column name = {\boldmath$20\lg{A(\omega)}$}, column type = |c},
+    columns/psi/.style = {column name = {\boldmath$\psi$}, column type = |c|},
+    every head row/.style = {before row = \hline},
+    after row = {[1mm] \hline},
+}
+
+\begin{document}
+	\begin{titlepage}
+		\centering
+		{\fontsize{12pt}{5cm}\selectfont \bfseries Министерство образования и науки Российской Федерации} \\ \vspace{0.5cm}
+		{\fontsize{7pt}{5cm}\selectfont ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ АВТОНОМНОЕ ОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ ВЫСШЕГО ПРОФЕССИОНАЛЬНОГО ОБРАЗОВАНИЯ} \\ 
+		\vspace{1cm}
+		{\fontsize{12pt}{5cm}\selectfont \bfseries САНКТ-ПЕТЕРБУРГСКИЙ УНИВЕРСИТЕТ ИНФОРМАЦИОННЫХ ТЕХНОЛОГИЙ, МЕХАНИКИ И ОПТИКИ} \\ \vspace{1.5cm}
+
+		{\fontsize{14pt}{5cm}\selectfont Кафедра \hspace{1cm} \underline{Систем Управления и Информатики}  \hspace{1cm} Группа \underline{Р3340}} \\ 
+		\vspace{2cm}
+
+		{\fontsize{20pt}{5cm}\selectfont \bfseries Лабораторная работа №9} \\
+		{\fontsize{20pt}{5cm}\selectfont \bfseries “Экспериментальное построение частотных характеристик типовых динамических звеньев”} \\
+		{\fontsize{14pt}{5cm}\selectfont Вариант - 1} \\
+		\vspace{1.5cm}
+
+		\flushleft
+
+		{Выполнил \hspace{2cm} \tline{(фамилия, и.о.)}{9cm} (подпись)} \\
+		\vspace{2cm}
+
+		{Проверил \hspace{2cm} \tline{(фамилия, и.о.)}{9cm} (подпись)} \\
+		\vspace{5cm}
+
+		"\underline{\hspace{0.7cm}}"\hspace{0.2cm}\underline{\hspace{2cm}}\hspace{0.2cm}20\underline{\hspace{0.7cm}}г. \hspace{2cm} Санкт-Петербург, \hspace{2cm} 20\underline{\hspace{0.7cm}}г. \\ \vspace{1cm}
+
+		Работа выполнена с оценкой \hspace{1cm} \underline{\hspace{8cm}} \\ 
+		\vspace{1cm}
+		Дата защиты "\underline{\hspace{0.7cm}}"\hspace{0.2cm}\underline{\hspace{2cm}}\hspace{0.2cm}20\underline{\hspace{0.7cm}}г.
+
+\end{titlepage}
+
+\begin{center}
+\section*{Задание}
+\end{center}
+
+\subsection*{Цель работы} 
+\par
+Изучение частотных характеристик типовых динамических звеньев и способов их построения; построение частотных характеристик, расчёт передаточных функций для заданных типовых звеньев.
+
+\begin{table}[h!]
+    %\tabulinesep = 2mm
+
+    \begin{threeparttable}
+    	\caption{Исходные элементарные звенья}
+    	\begin{tabular} {|l|c|}
+        \hline
+        	Тип звена & Передаточная функция \\ [0.5cm]  \hline
+        	Апериодическое 1-го порядка & $\displaystyle\frac{k}{Ts + 1}$ \\ [0.5cm]  \hline
+        	Дифференцирующее с замедлением & $\displaystyle\frac{ks}{Ts + 1}$ \\ [0.5cm]  \hline
+        	Консервативное & $\displaystyle\frac{k}{T^2s^2+1}$ \\ [0.5cm] \hline
+    	\end{tabular}
+    \end{threeparttable} 
+\end{table}
+
+\begin{table}[h!]
+    \tabulinesep = 2mm
+    	\caption{Параметры}\label{tab:perflogcross}
+    	\begin{tabular}{|c|c|c|}
+    		\hline
+        	k & T & $\xi$ \\ \hline
+        	3 & 5 & 0.4 \\
+        	\hline
+    	\end{tabular}
+\end{table}
+
+\newpage
+\begin{center}
+	\section{Исследование апериодического звена 1-го порядка}
+\end{center}
+
+\par 
+Передаточная функция исследуемого звена:
+\begin{align}
+	W(s)=\frac{k}{Ts+1}
+\end{align}
+\par 
+Найдём выражения для АЧХ и ФЧХ:
+
+\begin{align}
+	W(j\omega)=\frac{-k(T\omega j+1)}{T^2\omega^2+1}
+\end{align}
+\begin{align}
+	A(\omega)=\frac{k}{\sqrt{T^2\omega^2+1}}
+\end{align}
+	
+\begin{align}
+	\psi(\omega)=-arctg(T\omega)
+\end{align}
+
+\newpage
+\par 
+Данные, полученные по результатам моделирования, представлены в таблице 3.
+\begin{table}[h!]
+    \begin{threeparttable}
+        \caption{Полученные данные} \label{tab:perflogcross}
+        \pgfplotstabletypeset[]{data/aper.txt}
+    \end{threeparttable}
+\end{table}
+
+\newpage
+\par 
+На рисунке 1 представлены частотные характеристики апериодического звена 1-го порядка.
+
+\begin{figure}[h!]
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{semilogxaxis} [
+                    width = 0.9\textwidth,
+                    xlabel = {$\omega$, 1/c},
+                    ylabel = {$L_m$, дБ},
+                    extra y ticks = {13.979},
+            		extra x ticks = {10},
+            		%xtick= {0, 10e-1, 10e+0, 10e+1}
+                ]
+                \addplot table [x={w}, y={L}] {data/aper.txt};
+                \draw [draw = red] (0.01, 13.979) -- (10, 13.979) -- (10000, -46.02);
+                \draw[dashed] (0.01, 13.979) -- (10, 13.979);
+               	\draw[dashed] (10, -80) -- (10, 13.979); 
+            \end{semilogxaxis}
+        \end{tikzpicture}
+        \caption{График ЛАЧХ и асимптотическая ЛАЧХ}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{semilogxaxis} [
+                    width = 0.9\textwidth,
+                    xlabel = {$\omega$, 1/c},
+                    ylabel = {$\psi$, градусы},
+                ]
+                \addplot table [x={w}, y={psi}] {data/aper.txt};
+            \end{semilogxaxis}
+        \end{tikzpicture}
+        \caption{График ЛФЧХ}
+    \end{subfigure}
+    
+    \vspace{0.5cm}
+
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{polaraxis} [
+                    width = 0.9\textwidth,
+                    xlabel = {$A(\omega)$},
+                    ylabel = {$\psi$, градусы},
+                ]
+                \addplot table [x={psi}, y={A}] {data/aper.txt};
+            \end{polaraxis}
+        \end{tikzpicture}
+        \caption{График АФЧХ}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{polaraxis} [
+                    width = 0.9\textwidth,
+                    xlabel = {$L_m$, дБ},
+                    ylabel = {$\psi$, градусы},
+                ]
+                \addplot table [x={psi}, y={L}] {data/aper.txt};
+            \end{polaraxis}
+        \end{tikzpicture}
+        \caption{График ЛАФЧХ}
+    \end{subfigure}
+    \caption{Частотные характеристики апериодического звена 1-го порядка}
+\end{figure}
+
+\newpage
+\begin{center}
+	\section{Исследование дифференцирующего звена с замедлением}
+\end{center}
+
+\par 
+Передаточная функция исследуемого звена:
+\begin{align}
+	W(s)=\frac{ks}{Ts+1}
+\end{align}
+\par 
+Найдём выражения для АЧХ и ФЧХ:
+\begin{align}
+	W(j\omega)=\displaystyle \frac{k(\omega j+T\omega^2)}{T^2\omega^2+1}
+\end{align}
+
+\begin{align}
+	A(\omega)=\frac{k\omega}{\sqrt{T^2\omega^2+1}}
+\end{align}
+
+\begin{align}
+	\psi(\omega)=arctg\frac{1}{T\omega}
+\end{align}
+
+\par 
+Данные, полученные по результатам моделирования, представлены в таблице 4.
+
+\newpage
+\begin{table}[h!]
+    \begin{threeparttable}
+        \caption{Полученные данные} \label{tab:perflogcross}
+        \pgfplotstabletypeset[]{data/diff.txt}
+    \end{threeparttable}
+\end{table}
+
+\newpage
+\par 
+На рисунке 3 представлены частотные характеристики дифференцирующего звена с замедлением.
+
+\begin{figure}[h!]
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{semilogxaxis} [
+                    width = 0.9\textwidth,
+                    xlabel = {$\omega$, 1/c},
+                    ylabel = {$L_m$, дБ},
+                    extra y ticks = {33.979},
+            		extra x ticks = {10},
+            		ytick= {15, 20, 25, 30}
+                ]
+                \addplot table [x={w}, y={L}] {data/diff.txt};
+                \draw[draw = red] (1, 13.979) -- (10, 33.979) -- (10000, 33.979);
+                \draw[dashed] ( 0.01, 33.979) -- (10, 33.979);
+                \draw[dashed] (10, 33.979) -- (10, -100);
+            \end{semilogxaxis}
+        \end{tikzpicture}
+        \caption{График ЛАЧХ и асимптотическая ЛАЧХ}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{semilogxaxis} [
+                    width = 0.9\textwidth,
+                    xlabel = {$\omega$, 1/c},
+                    ylabel = {$\psi$, градусы},
+                ]
+                \addplot table [x={w}, y={psi}] {data/diff.txt};
+            \end{semilogxaxis}
+        \end{tikzpicture}
+        \caption{График ЛФЧХ}
+    \end{subfigure}
+    
+    \vspace{0.5cm}
+
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{polaraxis} [
+                    width = 0.9\textwidth,
+                    xlabel = {$A(\omega)$},
+                    ylabel = {$\psi$, градусы},
+                ]
+                \addplot table [x={psi}, y={A}] {data/diff.txt};
+            \end{polaraxis}
+        \end{tikzpicture}
+        \caption{График АФЧХ}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{polaraxis} [
+                    width = 0.9\textwidth,
+                    xlabel = {$L_m$, дБ},
+                    ylabel = {$\psi$, градусы},
+                ]
+                \addplot table [x={psi}, y={L}] {data/diff.txt};
+            \end{polaraxis}
+        \end{tikzpicture}
+        \caption{График ЛАФЧХ}
+    \end{subfigure}
+    \caption{Частотные характеристики дифференцирующего звена с замедлением}
+\end{figure}
+
+\newpage
+\begin{center}
+	\section{Исследование консервативного звена}
+\end{center}
+
+\par 
+Передаточная функция исследуемого звена:
+\begin{align}
+	W(s) = \frac{k}{T^2s^2+1}
+\end{align}
+\par 
+Найдём выражения для АЧХ и ФЧХ:
+
+\begin{align}
+	A(\omega)=\frac{k}{|1-T^2\omega^2|}
+\end{align}
+
+\begin{align}
+\psi(\omega)=\left\{
+\begin{matrix}
+\displaystyle 0, \ \omega < \frac{1}{T} \\
+\displaystyle -180, \  \omega > \frac{1}{T}
+\end{matrix}
+\right. 
+\end{align}
+
+\par 
+Данные, полученные по результатам моделирования, представлены в таблице 4.
+
+\newpage
+\begin{table}[h!]
+    \begin{threeparttable}
+        \caption{Полученные данные} \label{tab:perflogcross}
+        \pgfplotstabletypeset[]{data/konser_model.txt}
+    \end{threeparttable}
+\end{table}
+
+\newpage
+\par 
+На рисунке 3 представлены частотные характеристики консервативного звена. Снять полностью характеристику не удалось из-за сильного искажения выходного сигнала, поэтому смоделированные графики дополняют аналитически полученные.
+
+\begin{figure}[h!]
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{semilogxaxis} [
+                    width = 0.9\textwidth,
+                    xlabel = {$\omega$, 1/c},
+                    ylabel = {$L_m$, дБ},
+                    extra y ticks = {14.066},
+            		extra x ticks = {10},
+            		%xtick= {0, 10e-1, 10e+0, 10e+1}
+                ]
+                \addplot table [x={w}, y={L}] {data/konser.txt};
+                \addplot table [x={w}, y={L}] {data/konser_model.txt};
+                \draw[draw = green] (1, 14.066) -- (11, 14.066) -- (10000, -106.021);
+                \draw[dashed] (0.01, 14.066) -- (10, 14.066);
+                \draw[dashed] (10, 14.066) -- (10, -150);
+            	\legend{
+				$Anal$,
+				$Model$
+			}
+            \end{semilogxaxis}
+        \end{tikzpicture}
+        \caption{График ЛАЧХ и асимптотическая ЛАЧХ}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{semilogxaxis} [
+                    width = 0.9\textwidth,
+                    xlabel = {$\omega$, 1/c},
+                    ylabel = {$\psi$, градусы},
+                ]
+                \addplot table [x={w}, y={psi}] {data/konser.txt};
+                \addplot table [x={w}, y={psi}] {data/konser_model.txt};
+                            	\legend{
+				$Anal$,
+				$Model$
+			}
+            \end{semilogxaxis}
+        \end{tikzpicture}
+        \caption{График ЛФЧХ}
+    \end{subfigure}
+    
+    \vspace{0.5cm}
+
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{polaraxis} [
+                    width = 0.9\textwidth,
+                    xlabel = {$A(\omega)$},
+                    ylabel = {$\psi$, градусы},
+                ]
+                \addplot table [x={psi}, y={A}] {data/konser.txt};
+                \addplot table [x={psi}, y={A}] {data/konser_model.txt};
+                            	\legend{
+				$Anal$,
+				$Model$
+			}
+            \end{polaraxis}
+        \end{tikzpicture}
+        \caption{График АФЧХ}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{polaraxis} [
+                    width = 0.9\textwidth,
+                    xlabel = {$L_m$, дБ},
+                    ylabel = {$\psi$, градусы},
+                ]
+                \addplot table [x={psi}, y={L}] {data/konser.txt};
+                \addplot table [x={psi}, y={L}] {data/konser_model.txt};
+                            	\legend{
+				$Anal$,
+				$Model$
+			}
+            \end{polaraxis}
+        \end{tikzpicture}
+        \caption{График ЛАФЧХ}
+    \end{subfigure}
+    \caption{Частотные характеристики консервативного звена}
+\end{figure}
+
+\newpage
+\begin{center}
+	\section*{Вывод}
+\end{center}
+\par 
+В ходе проведения данной лабораторной работы с помощью математического моделирования и аналитических расчётов определен вид частотных характеристик трех динамических звеньев: апериодического звена первого порядка, дифференцирующего звена с замедлением и консервативного звена, – а также получены годографы положения вектора передаточной функции для всех трех звеньев. Вид полученных характеристик полностью согласуется с начальными предсказаниями, сделанными при аналитическом анализе выражений для передаточных функций.
+\par
+Были построены асимптотические ЛАЧХ звеньев. При сравнении с полученными математически данными графики ЛАЧХ и асимптотических ЛАЧХ сошлись. 
+\end{document}
