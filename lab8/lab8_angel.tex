@@ -161,7 +161,7 @@ every axis plot post/.append style={
 	grid = both,
 ]
 
-\addplot[line width = 2] table [x=t, y=y] 
+\addplot[line width = 1] table [x=t, y=y] 
               {data/koleb.txt};
 
 \end{axis}
@@ -212,7 +212,7 @@ polyroots(v)=\left(
 	grid = both,
 ]
 
-\addplot[line width = 2] table [x=t, y=y] 
+\addplot[line width = 1] table [x=t, y=y] 
               {data/neust.txt};
 
 \end{axis}
@@ -286,7 +286,7 @@ polyroots(v)=\left(
 	grid = both,
 ]
 
-\addplot[line width = 2] table [x=t, y=y] 
+\addplot[line width = 1] table [x=t, y=y] 
               {data/ust.txt};
 
 \end{axis}
@@ -299,38 +299,17 @@ polyroots(v)=\left(
 
 \newpage
 \begin{table}
-\caption{Точки построения смоделированной границы устойчивости}
-\begin{tabular}{|c|c|}
+\centering
+\begin{threeparttable}
+\caption{Точки построения смоделированной границы устойчивости}\label{tab:perflogcross}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-$T_2$,c & $K$ \\
+$T_2$,c & 0.1 & 0.2 & 0.3 & 0.4 & 0.5 & 1 & 1.5 & 2 & 2.5 & 3 & 3.5 & 4 & 5 \\
 \hline
-0.1 & 12 \\
-\hline
-0.2 & 7 \\
-\hline
-0.3 & 5.35 \\
-\hline
-0.4 & 4.5 \\
-\hline
-0.5 & 4 \\
-\hline
-1 & 3 \\
-\hline
-1.5 & 2.7 \\
-\hline
-2 & 2.5 \\
-\hline
-2.5 & 2.4 \\
-\hline
-3 & 2.3 \\
-\hline
-3.5 & 2.3 \\
-\hline
-4 & 2.25 \\
-\hline
-5 & 2.2 \\
+$K$ & 12 & 7 & 5.35 & 4.5 & 4 & 3 & 2.7 & 2.5 & 2.4 & 2.3 & 2.3 & 2.25 & 2.2\\
 \hline
 \end{tabular}
+\end{threeparttable}
 \end{table}
 
 \par 
@@ -340,14 +319,14 @@ $T_2$,c & $K$ \\
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-	xlabel = {\Large{$t,c$}},
-	ylabel = {\Large{$y$}},
+	xlabel = {\Large{$T_2,c$}},
+	ylabel = {\Large{$K$}},
 	width = 250,
 	height = 200,
 	grid = both,
 ]
 
-\addplot[line width = 2] table [x=t, y=y] 
+\addplot[line width = 1] table [x=t, y=y] 
               {data/data.txt};
 
 \end{axis}
@@ -366,7 +345,6 @@ a_0 & a_2 & 0 \\
 \end{bmatrix}
 \end{equation}
 
-\newpage
 \par 
 Подставляя коэффициенты характеристического уравнения, получим:
 \begin{equation}
@@ -438,40 +416,18 @@ K>0
 \par 
 Составим таблицу, необходимую для построения теоретической границы устойчивости. Данные для теоретической границы устойчивости приведены в таблице 2.
 
-\newpage
 \begin{table}
-\caption{Точки построения теоретической границы устойчивости}
-\begin{tabular}{|c|c|}
+\centering
+\begin{threeparttable}
+\caption{Точки построения теоретической границы устойчивости}\label{tab:perflogcross}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-$T_2$,c & K \\
+$T_2$,c & 0.1 & 0.2 & 0.3 & 0.4 & 0.5 & 1 & 1.5 & 2 & 2.5 & 3 & 3.5 & 4 & 5 \\
 \hline
-0.1 & 12 \\
-\hline
-0.2 & 7 \\
-\hline
-0.3 & 5.33 \\
-\hline
-0.4 & 4.5 \\
-\hline
-0.5 & 4 \\
-\hline
-1 & 3 \\
-\hline
-1.5 & 2.66 \\
-\hline
-2 & 2.5 \\
-\hline
-2.5 & 2.4 \\
-\hline
-3 & 2.33 \\
-\hline
-3.5 & 2.28 \\
-\hline
-4 & 2.25 \\
-\hline
-5 & 2.2 \\
+$K$ & 12 & 7 & 5.33 & 4.5 & 4 & 3 & 2.66 & 2.5 & 2.4 & 2.33 & 2.28 & 2.25 & 2.2\\
 \hline
 \end{tabular}
+\end{threeparttable}
 \end{table}
 
 \par 
@@ -481,14 +437,14 @@ $T_2$,c & K \\
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-	xlabel = {\Large{$t,c$}},
-	ylabel = {\Large{$y$}},
+	xlabel = {\Large{$T_2,c$}},
+	ylabel = {\Large{$K$}},
 	width = 250,
 	height = 200,
 	grid = both,
 ]
 
-\addplot[line width = 2] table [x=t, y=y] 
+\addplot[line width = 1] table [x=t, y=y] 
               {data/data_expr.txt};
 
 \end{axis}
@@ -498,8 +454,8 @@ $T_2$,c & K \\
 
 \newpage
 \begin{center}
-\section*{Выводы}
+\section*{Вывод}
 \end{center}
 \par 
-В ходе лабораторной работы было произведено математическое моделирование границы устойчивости на плоскости двух параметров $(T_2$ и $К)$ системы третьего порядка путем анализа переходных процессов системы. Анализ смоделированной  границы устойчивости позволяет сделать вывод о ее гиперболическом характере, т.е. об обратной пропорциональности параметров системы  $T_2$ и $К$. Адекватность смоделированной границы устойчивости проверяется построением теоретической границы через критерий устойчивости Гурвица. Сравнение таблиц построения смоделированной и теоретической границ устойчивости а также анализ их графиков говорит о правильности проведенного в работе моделирования.   
+В ходе лабораторной работы было произведено математическое моделирование границы устойчивости на плоскости двух параметров $(T_2$ и $K$) системы третьего порядка путем анализа переходных процессов системы. Анализ смоделированной  границы устойчивости позволяет сделать вывод о ее гиперболическом характере, т.е. об обратной пропорциональности параметров системы  $T_2$ и $K$. Адекватность смоделированной границы устойчивости проверяется построением теоретической границы через критерий устойчивости Гурвица. Сравнение таблиц построения смоделированной и теоретической границ устойчивости а также анализ их графиков говорит о правильности проведенного в работе моделирования.   
 \end{document}
