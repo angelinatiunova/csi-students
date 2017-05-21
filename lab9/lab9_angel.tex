@@ -84,7 +84,8 @@
 Изучение частотных характеристик типовых динамических звеньев и способов их построения; построение частотных характеристик, расчёт передаточных функций для заданных типовых звеньев.
 
 \begin{table}[h!]
-    %\tabulinesep = 2mm
+\centering
+    \tabulinesep = 2mm
 
     \begin{threeparttable}
     	\caption{Исходные элементарные звенья}
@@ -99,14 +100,17 @@
 \end{table}
 
 \begin{table}[h!]
+\centering
+	\begin{threeparttable}
     \tabulinesep = 2mm
     	\caption{Параметры}\label{tab:perflogcross}
     	\begin{tabular}{|c|c|c|}
     		\hline
         	k & T & $\xi$ \\ \hline
-        	3 & 5 & 0.4 \\
+        	5 & 0.1 & 0.1 \\
         	\hline
     	\end{tabular}
+    \end{threeparttable}
 \end{table}
 
 \newpage
@@ -137,6 +141,7 @@
 \par 
 Данные, полученные по результатам моделирования, представлены в таблице 3.
 \begin{table}[h!]
+\centering
     \begin{threeparttable}
         \caption{Полученные данные} \label{tab:perflogcross}
         \pgfplotstabletypeset[]{data/aper.txt}
@@ -241,6 +246,7 @@
 
 \newpage
 \begin{table}[h!]
+\centering
     \begin{threeparttable}
         \caption{Полученные данные} \label{tab:perflogcross}
         \pgfplotstabletypeset[]{data/diff.txt}
@@ -347,6 +353,7 @@
 
 \newpage
 \begin{table}[h!]
+\centering
     \begin{threeparttable}
         \caption{Полученные данные} \label{tab:perflogcross}
         \pgfplotstabletypeset[]{data/konser_model.txt}
